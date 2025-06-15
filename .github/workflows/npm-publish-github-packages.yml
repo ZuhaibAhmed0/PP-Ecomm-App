@@ -18,12 +18,12 @@ jobs:
           node-version: 20
 
       - name: Build Docker image
-        run: docker build -t e-commerce-app .
+        run: sudo docker build -t e-commerce-app .
 
       - name: Stop and remove existing container (if exists)
         run: |
-          docker stop container || true
-          docker rm container || true
+          sudo docker stop container || true
+          sudo docker rm container || true
 
       - name: Run Docker container
-        run: docker run -d -p 3000:3000 --name container e-commerce-app
+        run: sudo docker run -d -p 3000:3000 --name container e-commerce-app
