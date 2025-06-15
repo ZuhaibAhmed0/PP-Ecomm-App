@@ -1,0 +1,26 @@
+
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: project folder  
+       
+
+        
+      - name: build a docker file 
+        run: docker build -t e-commerce-app .
+
+      - name: running the docker file 
+        run: docker run -d -p 3000:3000 --name container e-commerce-app 
+
+
