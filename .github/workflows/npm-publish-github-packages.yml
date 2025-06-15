@@ -18,7 +18,7 @@ jobs:
           node-version: 20
 
       - name: Build Docker image
-        run: docker build -t e-commerce-app .
+        run: sudo docker build -t e-commerce-app .
 
       - name: Run Docker container
-        run: docker run -d -p 3000:3000 --name container e-commerce-app
+        run: sudo docker run -d -p 3000:3000 --name container e-commerce-app
